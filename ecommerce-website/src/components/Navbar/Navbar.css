@@ -1,0 +1,83 @@
+
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    width: 150px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #484848;
+    font-size: 12px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+
+.btn {
+    display: flex;
+    gap: 20px;
+}
+.navbar button.sign-up {
+    background: #000000;
+    border-radius: 8px;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    font-size: 12px;
+}
+
+.sign-in {
+    background: transparent;
+    color: #000000;
+    border: none;
+    font-size: 12px;
+    
+}
+
+.navbar button.sign-up:hover {
+    background-color: #AE9B84;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.navbar button.sign-in:hover {
+    color: #AE9B84;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #000000;
+}
+
+.navbar li {
+    cursor: pointer;
+}
+
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
