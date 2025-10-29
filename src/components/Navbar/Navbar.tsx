@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { assets } from "../../assets/assets";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
 
     const [menu, setMenu] = useState('deals');
 
@@ -10,10 +11,10 @@ const Navbar = () => {
     <div className="navbar">
       <img src={assets.logo} alt="" className="logo" />
       <ul className="navbar-menu">
-        <li onClick={()=>setMenu("home")} className={menu == "home" ? "active" : ""}>Home</li>
-        <li onClick={()=>setMenu("deals")} className={menu == "deals" ? "active" : ""}>Deals</li>
-        <li onClick={()=>setMenu("new-arrivals")} className={menu == "new-arrivals" ? "active" : ""}>New Arrivals</li>
-        <li onClick={()=>setMenu("packages")} className={menu == "packages" ? "active" : ""}>Packages</li>
+        <Link to='/' onClick={()=>setMenu("home")} className={menu == "home" ? "active" : ""}>Home</Link>
+        <a href="#explore-menu" onClick={()=>setMenu("deals")} className={menu == "deals" ? "active" : ""}>Menu</a>
+        <a href="#app-download" onClick={()=>setMenu("new-arrivals")} className={menu == "new-arrivals" ? "active" : ""}>Download</a>
+        <a href="#footer"  onClick={()=>setMenu("packages")} className={menu == "packages" ? "active" : ""}>Contact us</a>
       </ul>
 
       <div className="navbar-right">
@@ -24,7 +25,7 @@ const Navbar = () => {
         </div>
 
         
-          <button className="sign-up">Sign in</button>
+          <button onClick={() => setShowLogin(true)} className="sign-up">Sign in</button>
       </div>
     </div>
   );

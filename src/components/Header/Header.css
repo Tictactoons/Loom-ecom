@@ -50,6 +50,9 @@
     .header-content {
         max-width: 65%;
     }
+    .header-content h2 {
+        font-size: 18px;
+    }
     .header-content p {
         display: none;
     }
