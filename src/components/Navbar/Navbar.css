@@ -24,18 +24,19 @@
 }
 
 .navbar button.sign-up {
-  background: #000000;
-  border-radius: 8px;
+  background-color: tomato;
   color: #fff;
-  padding: 10px 20px;
+  border-radius: 20px;
+  padding: 8px 20px;
   border: none;
   font-size: 12px;
 }
 
 .navbar button.sign-up:hover {
-  background-color: #ae9b84;
+  background-color: rgb(186, 68, 47);
   color: #fff;
   transition: 0.3s;
+  border: none;
 }
 
 .navbar .active {
