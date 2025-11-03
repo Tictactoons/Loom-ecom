@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // placing user order from frontend
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5175";
+  const frontend_url = "http://localhost:5177";
 
   try {
     // ✅ use req.userId from middleware
@@ -79,8 +79,52 @@ const placeOrder = async (req, res) => {
     } catch (error) {
       console.log(error);
       res.json({success:false,message:"Error"})
+    }
+  }
+
+  // user orders for frontend
+  const userOrders = async (req,res) => {
+    try {
+      const orders = await orderModel.find({userId:req.userId});
+      res.json({success:true,data:orders})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:error.message})
+        
+    }
+  }
+
+  // Listing orders for admin panel
+
+  const listOrders = async (req,res) => {
+    try {
+      const orders = await orderModel.find({});
+      res.json({success:true,data:orders})
+    } catch (error) {
+      console.log(error);
+      res.json({success:false,message:"Error"})
       
     }
   }
 
-export { placeOrder,verifyOrder };
+  // api for updating order status
+  // Update order status
+const updateStatus = async (req, res) => {
+  try {
+    console.log("Updating order status:", req.body);
+    
+    const { orderId, status } = req.body;
+    
+    if (!orderId || !status) {
+      return res.json({ success: false, message: "Missing orderId or status" });
+    }
+
+    await orderModel.findByIdAndUpdate(orderId, { status });
+    res.json({ success: true, message: "Status Updated" });
+  } catch (error) {
+    console.log("Status update error:", error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus };
